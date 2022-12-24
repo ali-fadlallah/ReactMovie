@@ -1,5 +1,5 @@
 import './App.css';
-import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, createHashRouter, Navigate, RouterProvider } from 'react-router-dom';
 import MasterLayout from './Components/MasterLayout/MasterLayout';
 import Home from './Components/Home/Home';
 import Movie from './Components/Movie/Movie';
@@ -57,7 +57,7 @@ function App() {
 
   }
 
-  let Routers = createBrowserRouter([{
+  let Routers = createHashRouter([{
 
     path: "/", element: <MasterLayout UserData={user} logOut={logOut} />, children: [
 
