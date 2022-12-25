@@ -70,11 +70,11 @@ export default function Register() {
 
     let schema = Joi.object({
 
-      first_name: Joi.string().min(3).max(100).alphanum().required(),
-      last_name: Joi.string().min(3).max(100).alphanum().required(),
+      first_name: Joi.string().min(3).max(100).alphanum().required().trim(),
+      last_name: Joi.string().min(3).max(100).alphanum().required().trim(),
       age: Joi.number().min(18).max(89).required(),
-      email: Joi.string().email({ minDomainSegments: 2, tlds: false }).required(),
-      password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),
+      email: Joi.string().email({ minDomainSegments: 2, tlds: false }).required().trim(),
+      password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required().trim(),
 
     })
 

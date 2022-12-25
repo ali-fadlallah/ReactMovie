@@ -11,6 +11,7 @@ import People from './Components/People/People';
 import jwtDecode from 'jwt-decode';
 import { useState, useEffect } from 'react';
 import TheDetails from './Components/TheDetails/TheDetails';
+import About from './Components/About/About';
 
 function App() {
 
@@ -51,7 +52,7 @@ function App() {
 
   function logOut() {
 
-    localStorage.removeItem("movie-db")
+    localStorage.removeItem("movie-db");
     setuser(null);
     return <Navigate to="/login" />
 
@@ -66,6 +67,7 @@ function App() {
       { path: "movies", element: <ProtectedRoute> <Movie /> </ProtectedRoute> },
       { path: "tvshow", element: <ProtectedRoute> <TVShow /> </ProtectedRoute> },
       { path: "people", element: <ProtectedRoute> <People /> </ProtectedRoute> },
+      { path: "about", element: <ProtectedRoute> <About /> </ProtectedRoute> },
       { path: "details/:id/:type", element: <ProtectedRoute> <TheDetails /> </ProtectedRoute> },
       { path: "login", element: <Login saveUserData={saveUserData} /> },
       { path: "register", element: <Register /> },

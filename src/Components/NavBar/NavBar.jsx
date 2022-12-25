@@ -41,7 +41,12 @@ export default function NavBar({ UserData, logOut }) {
                                         <NavLink className={({ isActive }) => isActive ? "nav-link active my-1" : "nav-link my-1"} to="people">Peoples</NavLink>
                                     </li>
 
+                                    {/* <li className="nav-item">
+                                        <NavLink userdata={UserData.first_name} className={({ isActive }) => isActive ? "nav-link active my-1" : "nav-link my-1"} to="about">About</NavLink>
+                                    </li> */}
                                 </ul>
+
+
 
                                 <ul className="navbar-nav ma-auto mb-2 mb-lg-0">
                                     <li className="nav-item">
@@ -67,6 +72,8 @@ export default function NavBar({ UserData, logOut }) {
                                         </a>
                                     </li>
                                 </ul>
+
+                                <h6>Welcome: {UserData.first_name} {UserData.last_name} </h6>
 
                                 <button className='btn btn-outline-danger mx-3'><Link className=" text-decoration-none text-white" onClick={logOut}>Logout</Link>
                                 </button>
