@@ -85,6 +85,8 @@ export default function NavBar({ UserData, logOut }) {
                             <div className='ms-auto'>
 
 
+                                <button className='btn btn-outline-success'><Link className="text-decoration-none text-white" to="demo">Demo</Link></button>
+
                                 <button className='btn btn-outline-warning mx-3'><Link className="text-decoration-none text-white" to="login">Login</Link></button>
 
 

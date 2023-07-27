@@ -63,12 +63,13 @@ function App() {
     path: "/", element: <MasterLayout UserData={user} logOut={logOut} />, children: [
 
       { path: "/", element: <ProtectedRoute> <Home /> </ProtectedRoute> },
+      { path: "demo", element: <Home /> },
       { path: "home", element: <ProtectedRoute> <Home /> </ProtectedRoute> },
       { path: "movies", element: <ProtectedRoute> <Movie /> </ProtectedRoute> },
       { path: "tvshow", element: <ProtectedRoute> <TVShow /> </ProtectedRoute> },
       { path: "people", element: <ProtectedRoute> <People /> </ProtectedRoute> },
       { path: "about", element: <ProtectedRoute> <About /> </ProtectedRoute> },
-      { path: "details/:id/:type", element: <ProtectedRoute> <TheDetails /> </ProtectedRoute> },
+      { path: "details/:id/:type", element: <TheDetails /> },
       { path: "login", element: <Login saveUserData={saveUserData} /> },
       { path: "register", element: <Register /> },
       { path: "*", element: <NotFound /> }
