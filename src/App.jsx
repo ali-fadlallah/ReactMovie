@@ -12,6 +12,7 @@ import jwtDecode from 'jwt-decode';
 import { useState, useEffect } from 'react';
 import TheDetails from './Components/TheDetails/TheDetails';
 import About from './Components/About/About';
+import ProtectedRouters from './Components/ProtectedRouters/ProtectedRouters';
 
 function App() {
 
@@ -37,18 +38,18 @@ function App() {
 
   }
 
-  function ProtectedRoute(props) {
+  // function ProtectedRoute(props) {
 
-    if (localStorage.getItem("movie-db") == null) {
+  //   if (localStorage.getItem("movie-db") == null) {
 
-      return <Navigate to="/login" />
+  //     return <Navigate to="/login" />
 
-    } else {
+  //   } else {
 
-      return props.children
+  //     return props.children
 
-    }
-  }
+  //   }
+  // }
 
   function logOut() {
 
@@ -62,13 +63,13 @@ function App() {
 
     path: "/", element: <MasterLayout UserData={user} logOut={logOut} />, children: [
 
-      { path: "/", element: <ProtectedRoute> <Home /> </ProtectedRoute> },
+      { path: "/", element: <ProtectedRouters UserData={user}> <Home /> </ProtectedRouters> },
       { path: "demo", element: <Home /> },
-      { path: "home", element: <ProtectedRoute> <Home /> </ProtectedRoute> },
-      { path: "movies", element: <ProtectedRoute> <Movie /> </ProtectedRoute> },
-      { path: "tvshow", element: <ProtectedRoute> <TVShow /> </ProtectedRoute> },
-      { path: "people", element: <ProtectedRoute> <People /> </ProtectedRoute> },
-      { path: "about", element: <ProtectedRoute> <About /> </ProtectedRoute> },
+      { path: "home", element: <ProtectedRouters UserData={user}> <Home /> </ProtectedRouters> },
+      { path: "movies", element: <ProtectedRouters UserData={user}> <Movie /> </ProtectedRouters> },
+      { path: "tvshow", element: <ProtectedRouters UserData={user}> <TVShow /> </ProtectedRouters> },
+      { path: "people", element: <ProtectedRouters UserData={user}> <People /> </ProtectedRouters> },
+      { path: "about", element: <ProtectedRouters UserData={user}> <About /> </ProtectedRouters> },
       { path: "details/:id/:type", element: <TheDetails /> },
       { path: "login", element: <Login saveUserData={saveUserData} /> },
       { path: "register", element: <Register /> },
