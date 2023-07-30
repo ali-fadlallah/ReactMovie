@@ -48,7 +48,7 @@ export default function TheDetails() {
 
 
 
-    async function getDetails(category, id) {
+    let getDetails = async (category, id) => {
 
         let { data } = await axios.get(`https://api.themoviedb.org/3/${category}/${id}?api_key=${apiKey}&language=en-US`);
 
