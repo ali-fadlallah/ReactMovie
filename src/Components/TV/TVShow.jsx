@@ -131,7 +131,7 @@ export default function TVShow() {
 
                         <h5 >{element.name}</h5>
 
-                        <div className='rounded bg-info position-absolute top-0 end-0 p-2'>{element.vote_average.toFixed(1)}</div>
+                        <div className='rounded bg-info position-absolute top-0 end-0 p-2'>{element.vote_average?.toFixed(1)}</div>
 
                       </div>
                     </Link>

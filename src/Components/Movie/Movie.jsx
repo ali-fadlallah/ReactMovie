@@ -128,7 +128,7 @@ export default function Movie() {
 
                         <h5 >{element.original_title}</h5>
 
-                        <div className='rounded bg-info position-absolute top-0 end-0 p-2'>{element.vote_average.toFixed(1)}</div>
+                        <div className='rounded bg-info position-absolute top-0 end-0 p-2'>{element.vote_average?.toFixed(1)}</div>
 
                       </div>
                     </Link>

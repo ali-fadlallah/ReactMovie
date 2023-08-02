@@ -41,7 +41,7 @@ export default function Home() {
 
                   <h5 className=' text-center text-white'>{movie.title}</h5>
 
-                  <div className='rounded bg-info position-absolute top-0 end-0 p-2'>{movie.vote_average.toFixed(1)}</div>
+                  <div className='rounded bg-info position-absolute top-0 end-0 p-2'>{movie.vote_average?.toFixed(1)}</div>
 
                 </div>
 
@@ -79,7 +79,7 @@ export default function Home() {
 
                   <h5 className='text-center text-white'>{tv.name}</h5>
 
-                  <div className='rounded bg-info position-absolute top-0 end-0 p-2'>{tv.vote_average.toFixed(1)}</div>
+                  <div className='rounded bg-info position-absolute top-0 end-0 p-2'>{tv.vote_average?.toFixed(1)}</div>
 
                 </div>
 
