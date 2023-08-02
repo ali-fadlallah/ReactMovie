@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ReactMovie/static/css/main.5abaec91.css",
-    "main.js": "/ReactMovie/static/js/main.ca4b04db.js",
+    "main.js": "/ReactMovie/static/js/main.360f8ef7.js",
     "static/js/787.3daf3fd3.chunk.js": "/ReactMovie/static/js/787.3daf3fd3.chunk.js",
     "static/media/fa-solid-900.ttf": "/ReactMovie/static/media/fa-solid-900.b1a653db79258eeccc5d.ttf",
     "static/media/notfound.png": "/ReactMovie/static/media/notfound.0d6ada96bd42c46575a0.png",
@@ -15,11 +15,11 @@
     "static/media/fa-v4compatibility.woff2": "/ReactMovie/static/media/fa-v4compatibility.4ee7f902d88f819e251c.woff2",
     "index.html": "/ReactMovie/index.html",
     "main.5abaec91.css.map": "/ReactMovie/static/css/main.5abaec91.css.map",
-    "main.ca4b04db.js.map": "/ReactMovie/static/js/main.ca4b04db.js.map",
+    "main.360f8ef7.js.map": "/ReactMovie/static/js/main.360f8ef7.js.map",
     "787.3daf3fd3.chunk.js.map": "/ReactMovie/static/js/787.3daf3fd3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5abaec91.css",
-    "static/js/main.ca4b04db.js"
+    "static/js/main.360f8ef7.js"
   ]
 }
