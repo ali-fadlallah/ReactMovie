@@ -22,14 +22,14 @@ body {
 
   margin-right: 10px;
   padding     : 10px;
-  
+
 
 }
 
-.nav-linkCategory{
+.nav-linkCategory {
 
   background-color: transparent;
-  transition: 0.5s all;
+  transition      : 0.5s all;
 
 }
 
@@ -89,7 +89,7 @@ body {
 
 .line {
 
-  background-color: white;
+  background-color: grey;
   height          : 2px;
 }
 
