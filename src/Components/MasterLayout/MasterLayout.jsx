@@ -2,10 +2,10 @@ import React from 'react'
 import { Outlet } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
 
-export default function MasterLayout({ UserData, logOut }) {
+export default function MasterLayout() {
     return (
         <>
-            <NavBar UserData={UserData} logOut={logOut} />
+            <NavBar />
 
             <div className=' container'>
                 <Outlet />

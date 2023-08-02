@@ -1,44 +1,12 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import noImage from '../Images/no_image.png'
+import { MediaContext } from '../../Context/MediaStore';
 
 export default function Home() {
 
-  const apiKey = "5d1a8e296fc8303363b06b52c9e3cfcc";
-
-  const [movieData, setmovieData] = useState([]);
-  const [tvData, settvData] = useState([]);
-  const [peopleData, setpeopleData] = useState([]);
-
-  const [isLoading, setisLoading] = useState(false)
-
-  useEffect(() => {
-
-    setisLoading(true)
-
-    setTimeout(() => {
-
-      getData("movie", setmovieData)
-      getData("tv", settvData)
-      getData("person", setpeopleData)
-
-    }, 500);
-
-  }, [])
-
-
-  async function getData(category, callback) {
-
-    setisLoading(true);
-
-    let { data } = await axios.get(`https://api.themoviedb.org/3/trending/${category}/day?api_key=${apiKey}`);
-
-    callback(data.results.slice(0, 10));
-
-    setisLoading(false);
-
-  }
+  let { isLoading, movieData, tvData, peopleData } = useContext(MediaContext);
 
   return (
     <>
@@ -63,7 +31,7 @@ export default function Home() {
 
 
 
-            {movieData.map((movie, index) => <div key={index} className='col-md-2'>
+            {movieData.slice(0, 10).map((movie, index) => <div key={index} className='col-md-2'>
 
 
               <Link to={`/details/` + movie.id + `/movie`}>
@@ -100,7 +68,7 @@ export default function Home() {
 
 
 
-            {tvData.map((tv, index) => <div key={index} className='col-md-2'>
+            {tvData.slice(0, 10).map((tv, index) => <div key={index} className='col-md-2'>
 
               <Link to={`/details/` + tv.id + `/tvshow`}>
 
@@ -139,13 +107,13 @@ export default function Home() {
 
 
 
-            {peopleData.map((people, index) => <div key={index} className='col-md-2'>
+            {peopleData.slice(0, 10).map((people, index) => <div key={index} className='col-md-2'>
 
               <Link to={`/details/` + people.id + `/people`}>
 
                 <div className='item position-relative'>
 
-                  {people.profile_path == null ? <img src={noImage} className="w-100" alt="no_image" /> : <img className=' rounded w-100' src={"https://image.tmdb.org/t/p/w500" + people.profile_path} alt="posterImage" />}
+                  {people.profile_path == null ? <img src={noImage} className="w-100 " alt="no_image" /> : <img className=' rounded w-100 ' src={"https://image.tmdb.org/t/p/w500" + people.profile_path} alt="posterImage" />}
 
                   <h5 className='text-center text-white'>{people.name}</h5>
 

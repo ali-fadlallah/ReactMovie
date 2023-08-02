@@ -13,64 +13,37 @@ import { useState, useEffect } from 'react';
 import TheDetails from './Components/TheDetails/TheDetails';
 import About from './Components/About/About';
 import ProtectedRouters from './Components/ProtectedRouters/ProtectedRouters';
+import { useContext } from 'react';
+import { AuthContext } from './Context/AuthStore';
 
 function App() {
 
-  const [user, setuser] = useState(null);
+  const { saveUserData } = useContext(AuthContext);
 
-  useEffect(() => {
+  function ProtectedRoute(props) {
 
-    if (localStorage.getItem("movie-db") != null) {
+    if (localStorage.getItem("movie-db") == null) {
 
-      saveUserData();
+      return <Navigate to="/login" />
+
+    } else {
+
+      return props.children
 
     }
-
-  }, [])
-
-  function saveUserData() {
-
-    let token = localStorage.getItem("movie-db");
-
-    let decode = jwtDecode(token);
-
-    setuser(decode)
-
-  }
-
-  // function ProtectedRoute(props) {
-
-  //   if (localStorage.getItem("movie-db") == null) {
-
-  //     return <Navigate to="/login" />
-
-  //   } else {
-
-  //     return props.children
-
-  //   }
-  // }
-
-  function logOut() {
-
-    localStorage.removeItem("movie-db");
-    setuser(null);
-    return <Navigate to="/login" />
-
   }
 
   let Routers = createHashRouter([{
 
-    path: "/", element: <MasterLayout UserData={user} logOut={logOut} />, children: [
+    path: "/", element: <MasterLayout />, children: [
 
-      { path: "/", element: <ProtectedRouters UserData={user}> <Home /> </ProtectedRouters> },
-      { path: "demo", element: <Home /> },
-      { path: "home", element: <ProtectedRouters UserData={user}> <Home /> </ProtectedRouters> },
-      { path: "movies", element: <ProtectedRouters UserData={user}> <Movie /> </ProtectedRouters> },
-      { path: "tvshow", element: <ProtectedRouters UserData={user}> <TVShow /> </ProtectedRouters> },
-      { path: "people", element: <ProtectedRouters UserData={user}> <People /> </ProtectedRouters> },
-      { path: "about", element: <ProtectedRouters UserData={user}> <About /> </ProtectedRouters> },
-      { path: "details/:id/:type", element: <TheDetails /> },
+      { path: "/", element: <ProtectedRouters> <Home /> </ProtectedRouters> },
+      { path: "home", element: <ProtectedRouters> <Home /> </ProtectedRouters> },
+      { path: "movies", element: <ProtectedRouters> <Movie /> </ProtectedRouters> },
+      { path: "tvshow", element: <ProtectedRouters> <TVShow /> </ProtectedRouters> },
+      { path: "people", element: <ProtectedRouters> <People /> </ProtectedRouters> },
+      { path: "about", element: <ProtectedRouters> <About /> </ProtectedRouters> },
+      { path: "details/:id/:type", element: <ProtectedRouters><TheDetails /></ProtectedRouters> },
       { path: "login", element: <Login saveUserData={saveUserData} /> },
       { path: "register", element: <Register /> },
       { path: "*", element: <NotFound /> }

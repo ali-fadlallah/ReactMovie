@@ -30,7 +30,7 @@ export default function Movie() {
   }, [])
 
 
-  function changePage(pageNo) {
+  let changePage = (pageNo) => {
 
     setIsLoading(true)
 
@@ -42,8 +42,7 @@ export default function Movie() {
 
   }
 
-
-  function changeCategory(eventInfo) {
+  let changeCategory = (eventInfo) => {
 
     setchoosedCategory(eventInfo.target.id);
 
@@ -57,7 +56,7 @@ export default function Movie() {
 
   }
 
-  async function searchWords(eventInfo) {
+  let searchWords = async (eventInfo) => {
 
     if (eventInfo.target.value == "") {
 
@@ -77,7 +76,7 @@ export default function Movie() {
 
   }
 
-  async function getData(category, pageNo) {
+  let getData = async (category, pageNo) => {
 
     let { data } = await axios.get(`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&language=en-US&page=${pageNo}`);
 

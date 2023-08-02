@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { AuthContext } from '../../Context/AuthStore';
 
 
-export default function NavBar({ UserData, logOut }) {
+export default function NavBar() {
+
+    const { user, logOut } = useContext(AuthContext);
 
     return (
 
@@ -23,7 +26,7 @@ export default function NavBar({ UserData, logOut }) {
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
-                        {UserData != null ?
+                        {user != null ?
 
                             <>
                                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -41,11 +44,10 @@ export default function NavBar({ UserData, logOut }) {
                                         <NavLink className={({ isActive }) => isActive ? "nav-link active my-1" : "nav-link my-1"} to="people">Peoples</NavLink>
                                     </li>
 
-                                    {/* <li className="nav-item">
-                                        <NavLink userdata={UserData.first_name} className={({ isActive }) => isActive ? "nav-link active my-1" : "nav-link my-1"} to="about">About</NavLink>
-                                    </li> */}
+                                    <li className="nav-item">
+                                        <NavLink userdata={user.first_name} className={({ isActive }) => isActive ? "nav-link active my-1" : "nav-link my-1"} to="about">About</NavLink>
+                                    </li>
                                 </ul>
-
 
 
                                 <ul className="navbar-nav ma-auto mb-2 mb-lg-0">
@@ -73,9 +75,10 @@ export default function NavBar({ UserData, logOut }) {
                                     </li>
                                 </ul>
 
-                                <h6>Welcome: {UserData.first_name} {UserData.last_name} </h6>
 
-                                <button className='btn btn-outline-danger mx-3'><Link className=" text-decoration-none text-white" onClick={logOut}>Logout</Link>
+                                <h6 className=' mx-2 m-auto'>Welcome: {user.first_name} {user.last_name} </h6>
+
+                                <button className='btn btn-outline-danger'><Link className=" text-decoration-none text-white" onClick={logOut}>Logout</Link>
                                 </button>
 
                             </>
@@ -83,8 +86,6 @@ export default function NavBar({ UserData, logOut }) {
                             :
 
                             <div className='ms-auto'>
-
-                                <Link className="text-decoration-none text-white btn btn-outline-success" to="demo">Demo</Link>
 
                                 <Link className="text-decoration-none text-white btn btn-outline-warning mx-3" to="login">Login</Link>
 

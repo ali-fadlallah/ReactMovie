@@ -8,11 +8,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import $ from "jquery";
+import MediaContextProvider from './Context/MediaStore';
+import AuthContextProvider, { AuthContext } from './Context/AuthStore';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+
+    <AuthContextProvider>
+      <MediaContextProvider>
+
+        <App />
+
+      </MediaContextProvider>
+
+    </AuthContextProvider>
   </React.StrictMode>
 );
 
