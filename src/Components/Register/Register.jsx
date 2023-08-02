@@ -44,7 +44,7 @@ export default function Register() {
 
       setisLoading(true);
 
-      let { data } = await axios.post(`https://route-movies-api.vercel.app/signup`, users);
+      let { data } = await axios.post(`https://movies-api.routemisr.com/signup`, users);
 
       setisLoading(false);
 
