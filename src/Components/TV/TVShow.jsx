@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import noImage from '../Images/no_image.png'
 import $ from "jquery";
+import { Helmet } from 'react-helmet';
 
 
 export default function TVShow() {
@@ -91,6 +92,14 @@ export default function TVShow() {
 
   return (
     <>
+
+      <div className="application">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>TVShow</title>
+        </Helmet>
+      </div>
+
       {isLoading != true ?
 
         <>

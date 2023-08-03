@@ -3,6 +3,7 @@ import { data } from 'jquery';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import noImage from '../Images/no_image.png'
+import { Helmet } from 'react-helmet';
 
 export default function TheDetails() {
 
@@ -61,6 +62,12 @@ export default function TheDetails() {
     return (
         <>
 
+            <div className="application">
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <title>Details</title>
+                </Helmet>
+            </div>
             {responseAPI != null ?
 
                 <>

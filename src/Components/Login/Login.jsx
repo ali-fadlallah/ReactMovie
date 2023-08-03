@@ -2,6 +2,7 @@ import Joi from 'joi';
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 export default function Login({ saveUserData }) {
 
@@ -84,34 +85,45 @@ export default function Login({ saveUserData }) {
   }
 
   return (
-    <div>
 
-      <h2>Login</h2>
+    <>
+      <div className="application">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Login</title>
+        </Helmet>
+      </div>
 
-      <form onSubmit={submitData} className='my-3'>
+      <div>
 
-        {/* {errorValidation.length > 0 ? errorValidation.map((error, index) => <div key={index} className="alert alert-danger" role="alert"> {error.path[0] == "password" ? "Invalid Password" : error.message} </div>) : ""} */}
+        <h2>Login</h2>
 
-        {errorsAPI.length > 0 ? <div className="alert alert-danger" role="alert"> {errorsAPI} </div> : ""}
+        <form onSubmit={submitData} className='my-3'>
 
+          {/* {errorValidation.length > 0 ? errorValidation.map((error, index) => <div key={index} className="alert alert-danger" role="alert"> {error.path[0] == "password" ? "Invalid Password" : error.message} </div>) : ""} */}
 
-        <label htmlFor="email">Email</label>
-        <input onChange={getData} autoComplete="off" className='form-control mb-3 mt-2' type="email" name="email" id="email" />
-
-        {errorValidation.filter((error) => error.context.label == "email")[0] ? <div className="alert alert-danger" role="alert"> {errorValidation.filter((error) => error.context.label == "email")[0]?.message} </div> : ""}
-
-
-        <label htmlFor="password">Password</label>
-        <input onChange={getData} autoComplete="off" className='form-control mb-3 mt-2' type="password" name="password" id="password" />
-
-        {errorValidation.filter((error) => error.context.label == "password")[0] ? <div className="alert alert-danger" role="alert"> {errorValidation.filter((error) => error.context.label == "password")[0]?.message} </div> : ""}
+          {errorsAPI.length > 0 ? <div className="alert alert-danger" role="alert"> {errorsAPI} </div> : ""}
 
 
-        {isLoading ? <button type='button' className='btn btn-outline-info'><i className=' fa fa-spinner fa-spin'></i></button> : <button type='submit' className='btn btn-outline-info'>Submit</button>}
+          <label htmlFor="email">Email</label>
+          <input onChange={getData} autoComplete="off" className='form-control mb-3 mt-2' type="email" name="email" id="email" />
 
-      </form>
+          {errorValidation.filter((error) => error.context.label == "email")[0] ? <div className="alert alert-danger" role="alert"> {errorValidation.filter((error) => error.context.label == "email")[0]?.message} </div> : ""}
 
-    </div>
+
+          <label htmlFor="password">Password</label>
+          <input onChange={getData} autoComplete="off" className='form-control mb-3 mt-2' type="password" name="password" id="password" />
+
+          {errorValidation.filter((error) => error.context.label == "password")[0] ? <div className="alert alert-danger" role="alert"> {errorValidation.filter((error) => error.context.label == "password")[0]?.message} </div> : ""}
+
+
+          {isLoading ? <button type='button' className='btn btn-outline-info'><i className=' fa fa-spinner fa-spin'></i></button> : <button type='submit' className='btn btn-outline-info'>Submit</button>}
+
+        </form>
+
+      </div>
+    </>
+
   )
 
 }

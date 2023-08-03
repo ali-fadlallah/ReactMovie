@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import noImage from '../Images/no_image.png'
 import $ from "jquery";
+import { Helmet } from 'react-helmet';
 
 export default function People() {
 
@@ -73,6 +74,13 @@ export default function People() {
 
   return (
     <>
+
+      <div className="application">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Peoples</title>
+        </Helmet>
+      </div>
       {isLoading != true ?
 
         <>

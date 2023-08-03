@@ -15,6 +15,7 @@ import About from './Components/About/About';
 import ProtectedRouters from './Components/ProtectedRouters/ProtectedRouters';
 import { useContext } from 'react';
 import { AuthContext } from './Context/AuthStore';
+import { Offline, Online } from "react-detect-offline";
 
 function App() {
 
@@ -53,7 +54,17 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={Routers}></RouterProvider>
+      <div>
+        <Online>
+          <RouterProvider router={Routers}></RouterProvider>
+        </Online>
+        <Offline>
+          <div className=' text-center h2' >
+            You are Offline
+          </div>
+        </Offline>
+      </div>
+
     </>
   );
 }
